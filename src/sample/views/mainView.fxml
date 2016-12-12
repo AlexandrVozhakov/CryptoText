@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Controller">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open" />
+                <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#clearText" text="Clear" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TextArea fx:id="textArea" prefHeight="348.0" prefWidth="600.0" />
+      <HBox prefHeight="49.0" prefWidth="600.0">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <ChoiceBox value="Caesar" fx:id="cryptType" prefHeight="27.0" prefWidth="145.0">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Caesar" />
+                        <String fx:value="Affine" />
+                        <String fx:value="Gamma" />
+                    </FXCollections>
+                </items>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </ChoiceBox>
+
+             <RadioButton mnemonicParsing="false" selected="true" text="crypt" userData="Crypt">
+                <toggleGroup>
+                    <ToggleGroup fx:id="operationToggle" />
+                </toggleGroup>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="8.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="decrypt" toggleGroup="$operationToggle" userData="Decrypt">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="8.0" />
+               </HBox.margin>
+            </RadioButton>
+            <Separator orientation="VERTICAL" prefHeight="36.0" prefWidth="0.0" />
+            <TextField fx:id="keyAField" prefHeight="28.0" prefWidth="95.0" promptText="key a">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="keyBField" prefHeight="27.0" prefWidth="95.0" promptText="key b ">
+               <HBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </HBox.margin>
+            </TextField>
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#onClick" text="Push me">
+               <HBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
